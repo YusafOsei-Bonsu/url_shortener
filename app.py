@@ -10,9 +10,8 @@ db = SQLAlchemy(app)
 class URL(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     url_string = db.Column(db.String(500), nullable=False)
-    desc = db.Column(db.String(200))
-    # def __repr__(self):
-    #     return "<Task %r>" % self.id
+    description = db.Column(db.String(200))
+
 
 @app.route('/')
 def index():
@@ -21,10 +20,8 @@ def index():
 
 @app.route("/save_url", methods=['POST'])
 def post_url():
-    content = URL(url_string=request.form["url"])
-    desc =  URL(desc=request.form["desc"])
+    content = URL(url_string=request.form["url"], description=request.form["description"])
     db.session.add(content)
-    db.session.add(desc)
     db.session.commit()
 
     return redirect(url_for("index"))
