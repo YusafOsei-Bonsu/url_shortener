@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <div>
+        <h1>Anything</h1>
+        <form action="/save_url" method="post">
+            <input type="text" name="url" placeholder="Paste URL here">
+            <input type="text" name="desc" placeholder="Brief Description">
+            <input type="submit" value="Shorten URL">
+        </form>
+        {% for url in urls %}
+            <p>Your link to : {{url.desc}}</p>
+            <a href="http://127.0.0.1:5000/{{ url.id }}"><h5>127.0.0.1:5000/{{ url.id }}</h5></a>  
+        {% endfor %}
+    </div>
+</body>
+</html>
