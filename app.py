@@ -38,10 +38,7 @@ def reroute(id):
     if (not ('https://' in new_url)):
         new_url = 'https://' + new_url
     
-        
     return redirect(new_url, code=302)
-
-    
 
 if __name__ == '__main__':
     app.run(debug=True)
