@@ -29,7 +29,13 @@ def post_url():
 @app.route('/<int:id>')
 def reroute(id):
     info = URL.query.get_or_404(id)
-    return redirect("https://" + info.url_string, code=302)
+    new_url = info.url_string
+    if (not ('https://' in new_url)):
+        new_url = 'https://' + new_url
+    
+        
+    return redirect(new_url, code=302)
+
     
 
 if __name__ == '__main__':
