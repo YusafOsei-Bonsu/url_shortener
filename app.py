@@ -20,11 +20,16 @@ def index():
 
 @app.route("/save_url", methods=['POST'])
 def post_url():
-    content = URL(url_string=request.form["url"], description=request.form["description"])
-    db.session.add(content)
-    db.session.commit()
+    x = request.form['url']
+    y = request.form['description']
+    if (len(x) == 0 or len(y) == 0 ):
+        return 'Sorry you must enter a URL with a description'
+    else:
+        content = URL(url_string=request.form["url"], description=request.form["description"]) 
+        db.session.add(content)
+        db.session.commit()
 
-    return redirect(url_for("index"))
+        return redirect(url_for("index"))
 
 @app.route('/<int:id>')
 def reroute(id):
