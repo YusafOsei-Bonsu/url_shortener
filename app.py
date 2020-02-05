@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import requests
+from sqlalchemy import text 
 
 app = Flask(__name__) 
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///urls.db'
@@ -16,6 +17,8 @@ class URL(db.Model):
 @app.route('/')
 def index():
     urls = URL.query.all()
+    print(urls)
+    print(type(urls))
     return render_template("index.html", urls=urls)
 
 @app.route("/save_url", methods=['POST'])
@@ -39,6 +42,16 @@ def reroute(id):
         new_url = 'https://' + new_url
     
     return redirect(new_url, code=302)
+
+@app.route('/_co_uk')
+def get_co_uk():
+    sql = text("select id, url_string, description from url where url_string like '%.co.uk%'")
+    x = db.engine.execute(sql)
+    result = [row for row in x]
+    print(result)
+    print(type(result))
+    return render_template('index.html', urls=result)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
