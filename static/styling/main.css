@@ -1,8 +1,8 @@
 body {
     text-align: center;
-    background-color: rgb(62, 171, 45);
+    background-color: azure;
     font-size: 20px;
-    color: white;
+    color: black;
     
 }
 
@@ -19,15 +19,16 @@ form {
 }
 
 input {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     border: solid 1px #547AA5;
-    background-color: #FFFFFF ;
+    background-color: rgb(217, 255, 220) ;
     padding: 8px;
     margin: 8px;
     min-height: 50px;
     border-radius: 10px;
+    width: 100%;
 }
 
 #submit {
@@ -41,4 +42,24 @@ h5 {
     color: rgb(255, 103, 103);
     font-size: 30px;
 
+}
+
+table, td, th {
+    border: 3px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 25px;
+    font-size: 24px;
+    color: red;
+}
+
+td {
+    text-align: center;
+    padding: 2px;
 }
