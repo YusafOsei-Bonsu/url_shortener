@@ -50,7 +50,34 @@ def get_co_uk():
     result = [row for row in x]
     print(result)
     print(type(result))
-    return render_template('index.html', urls=result)
+    return render_template('index.html', urls=result, show_co_uk=1)
+
+@app.route('/com')
+def get_com():
+    sql = text("select id, url_string, description from url where url_string like '%.com%'")
+    x = db.engine.execute(sql)
+    result = [row for row in x]
+    print(result)
+    print(type(result))
+    return render_template('index.html', urls=result, show_com=1)
+
+@app.route('/net')
+def get_net():
+    sql = text("select id, url_string, description from url where url_string like '%.net%'")
+    x = db.engine.execute(sql)
+    result = [row for row in x]
+    print(result)
+    print(type(result))
+    return render_template('index.html', urls=result, show_net=1)
+
+@app.route('/org')
+def get_org():
+    sql = text("select id, url_string, description from url where url_string like '%.org%'")
+    x = db.engine.execute(sql)
+    result = [row for row in x]
+    print(result)
+    print(type(result))
+    return render_template('index.html', urls=result, show_org=1)
 
 
 if __name__ == '__main__':

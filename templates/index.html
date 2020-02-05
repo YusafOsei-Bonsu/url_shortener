@@ -7,9 +7,41 @@
 </head>
 <body>
     <div>
+        <form action="/" method="GET">
+            <input type="submit" value="SHOW ALL LINKS">
+        </form>
+    </div>
+    <div>
         <form action="/_co_uk" method="GET">
             <input type="submit" value="Get all .co.uk sites">
         </form>
+        {% if show_co_uk %}
+        <h1>Showing all .co.uk links!</h1>
+        {% endif %}
+    </div>
+    <div>
+        <form action="/com" method="GET">
+            <input type="submit" value="Get all .com sites">
+        </form>
+        {% if show_com%}
+        <h1>Showing all .com links!</h1>
+        {% endif %}
+    </div>
+    <div>
+        <form action="/net" method="GET">
+            <input type="submit" value="Get all .net sites">
+        </form>
+        {% if show_net%}
+        <h1>Showing all .net links!</h1>
+        {% endif %}
+    </div>
+    <div>
+        <form action="/org" method="GET">
+            <input type="submit" value="Get all .org sites">
+        </form>
+        {% if show_org%}
+        <h1>Showing all .org links!</h1>
+        {% endif %}
     </div>
     <div>
         <h1>URL Shortener</h1>
