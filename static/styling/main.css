@@ -1,0 +1,44 @@
+body {
+    text-align: center;
+    background-color: rgb(62, 171, 45);
+    font-size: 20px;
+    color: white;
+    
+}
+
+h1 {
+    font-weight: bold;
+    text-decoration: underline;
+    font-variant: small-caps;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    display: inline-block;
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid 1px #547AA5;
+    background-color: #FFFFFF ;
+    padding: 8px;
+    margin: 8px;
+    min-height: 50px;
+    border-radius: 10px;
+}
+
+#submit {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 26px;
+    color: #547AA5;
+
+}
+
+h5 {
+    color: rgb(255, 103, 103);
+    font-size: 30px;
+
+}

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styling/main.css') }}">
     <title>URL Shortener</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
         <form action="/save_url" method="POST">
             <input type="text" name="url" placeholder="Paste URL here">
             <input type="text" name="description" placeholder="Brief Description">
-            <input type="submit" value="Shorten URL">
+            <input type="submit" id="submit" value="Shorten URL">
         </form>
         {% for url in urls %}
             <p>Your link to : {{url.description}}</p>
