@@ -7,16 +7,66 @@
 </head>
 <body>
     <div>
+        <form action="/" method="GET">
+            <input type="submit" value="SHOW ALL LINKS">
+        </form>
+    </div>
+    <div>
+        <form action="/_co_uk" method="GET">
+            <input type="submit" value="Get all .co.uk sites">
+        </form>
+        {% if show_co_uk %}
+        <h1>Showing all .co.uk links!</h1>
+        {% endif %}
+    </div>
+    <div>
+        <form action="/com" method="GET">
+            <input type="submit" value="Get all .com sites">
+        </form>
+        {% if show_com%}
+        <h1>Showing all .com links!</h1>
+        {% endif %}
+    </div>
+    <div>
+        <form action="/net" method="GET">
+            <input type="submit" value="Get all .net sites">
+        </form>
+        {% if show_net%}
+        <h1>Showing all .net links!</h1>
+        {% endif %}
+    </div>
+    <div>
+        <form action="/org" method="GET">
+            <input type="submit" value="Get all .org sites">
+        </form>
+        {% if show_org%}
+        <h1>Showing all .org links!</h1>
+        {% endif %}
+    </div>
+    <div>
         <h1>URL Shortener</h1>
         <form action="/save_url" method="POST">
             <input type="text" name="url" placeholder="Paste URL here">
             <input type="text" name="description" placeholder="Brief Description">
             <input type="submit" id="submit" value="Shorten URL">
         </form>
-        {% for url in urls %}
-            <p>Your link to : {{url.description}}</p>
-            <a href="http://127.0.0.1:5000/{{ url.id }}"><h5>127.0.0.1:5000/{{ url.id }}</h5></a>  
-        {% endfor %}
+
+        {% if urls|length < 1 %}
+        <h4>There are no saved URLs yet!</h4>
+        {% else %}
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+            {% for url in urls %}
+            <tr>
+                <td>{{url.description}}</td>
+                <td><a href="http://127.0.0.1:5000/{{ url.id }}"><h5>127.0.0.1:5000/{{ url.id }}</h5></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
     </div>
 </body>
 </html>
